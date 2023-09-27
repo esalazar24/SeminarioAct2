@@ -1,0 +1,25 @@
+
+<h1 class="heading">👋 Bienvenidos<br><br></h1>
+<p class="para">Inicia sesión para continuar!</p>
+<ion-item>
+  <ion-input labelPlacement="floating" placeholder="correo@correo.com">
+    <div slot="label"><ion-icon name="mail-outline"></ion-icon>Email <ion-text color="danger">(Required)</ion-text></div>
+  </ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label><ion-icon name="keypad-outline"></ion-icon>Contraseña</ion-label>
+  <ion-input type="password" placeholder="contraseña"></ion-input>
+</ion-item> 
+
+<p class="forget-text"><a>Has olvidado tu contraseña?</a></p>
+<p class="signup-text">Soy un nuevo usuario&nbsp;<a>Registrate?</a></p>
+<ion-button class="login-button" expand="block">Login</ion-button>
+<a [routerLink]="['/muro']" routerLinkActive="router-link-active">vaya</a>
+
+
+<ion-footer color="white">
+  <ion-toolbar>
+    <p class="copyright">Creada por ❤️ by&nbsp;<a>Edwin & Estefany</a></p>
+  </ion-toolbar>
+</ion-footer>

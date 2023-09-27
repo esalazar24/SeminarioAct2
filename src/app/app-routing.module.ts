@@ -11,6 +11,10 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'muro',
+    loadChildren: () => import('./muro/muro.module').then( m => m.MuroPageModule)
+  },
 ];
 
 @NgModule({
