@@ -7,6 +7,8 @@ import { IonicModule } from '@ionic/angular';
 import { MuroPageRoutingModule } from './muro-routing.module';
 
 import { MuroPage } from './muro.page';
+import { PostsListComponent } from './posts-list/posts-list.component';
+import { PostsItemComponent } from './posts-item/posts-item.component';
 
 @NgModule({
   imports: [
@@ -15,6 +17,6 @@ import { MuroPage } from './muro.page';
     IonicModule,
     MuroPageRoutingModule
   ],
-  declarations: [MuroPage]
+  declarations: [MuroPage, PostsListComponent, PostsItemComponent]
 })
 export class MuroPageModule {}
