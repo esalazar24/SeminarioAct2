@@ -7,15 +7,17 @@ export class Post
     public date: any;
     public status: any;
     public picture: any;
-    set(id: number, title: string, name: string, description: string, date: string, status: string)
+
+    set(data: any)
     {
 
-        this.id = id;
-        this.name = name;
-        this.title = title;
-        this.description = description;
-        this.date = date;
-        this.status = status;
+        this.id = data.id;
+        this.name = data.name;
+        this.title = data.title;
+        this.description = data.description;
+        this.date = data.date;
+        this.status = data.status;
+
         this.picture = 'https://picsum.photos/600/200?random='+this.id;
     }
 }

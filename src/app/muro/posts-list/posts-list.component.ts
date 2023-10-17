@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { Post } from 'src/app/models/post';
+import { PostService } from 'src/app/services/post.service';
 
 @Component({
   selector: 'app-posts-list',
@@ -9,24 +11,23 @@ import { Post } from 'src/app/models/post';
 export class PostsListComponent  implements OnInit {
   public posts: Post[] = [];
   public post: Post | undefined;
-
-  constructor() { }
+  public postSubscription = new Subscription();
+  constructor(
+    public postservices: PostService
+  ) { }
 
   ngOnInit() {
-    
-    this.post = new Post();
-    this.post.set(1, 'Trabajo','Edwin Salazar', 'Lorem ipsum', 'Oct 12 2023', 'Active');
-    this.posts.push(this.post);
-    this.post = new Post();
-    this.post.set(2, 'Embarazo','Estefany Torrez', 'Lorem ipsum ipsum ipsum ipsum', 'Oct 10 2023', 'Active');
-    this.posts.push(this.post);
-    this.post = new Post();
-    this.post.set(3, 'Programacion','Lucio', 'Lorem ipsum', 'Oct 12 2023', 'Active');
-    this.posts.push(this.post);
-    this.post = new Post();
-    this.post.set(4, 'Hogares','Manuel', 'Lorem ipsum ipsum ipsum ipsum', 'Oct 10 2023', 'Active');
-    this.posts.push(this.post);
-      
+   /*this.post = new Post()
+   this.post.set(1, 'Publicacion1, 'Gonzalo', 'Iorem', '20-12-2023', 'activo');
+   this.posts.push(this.post);*/
+   
+    this.postSubscription = this.postservices.all$().subscribe((res: Post[])=>{
+      this.posts = res;
+    });
+   
+    this.postservices.all().subscribe((res)=>{
+      console.log("listo");
+    });  
    
   }
 
