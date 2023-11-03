@@ -20,15 +20,15 @@ export class PostsListComponent  implements OnInit {
    /*this.post = new Post()
    this.post.set(1, 'Publicacion1, 'Gonzalo', 'Iorem', '20-12-2023', 'activo');
    this.posts.push(this.post);*/
-   
+
     this.postSubscription = this.postservices.all$().subscribe((res: Post[])=>{
       this.posts = res;
     });
-   
+
     this.postservices.all().subscribe((res)=>{
-      console.log("listo");
-    });  
-   
+      console.log('listo');
+    });
+
   }
 
 }

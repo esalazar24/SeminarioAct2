@@ -9,7 +9,7 @@ import { map, catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class PostService {
-  public url = environment.url;
+  public url = environment.backend;
   public posts$ = new Subject <Post[]> ();
   public post$ = new Subject <Post> ();
   public posts: Post[] = [];
@@ -26,7 +26,7 @@ public http: HttpClient
   }
   all(): Observable<any> {
     this.posts = [];
-    return this.http.get<Post[]>(this.url + '/post')
+    return this.http.get<Post[]>(this.url + 'posts')
       .pipe(
         map((res: any)=>{
           res.array.forEach((item: any) => {

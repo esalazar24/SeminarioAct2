@@ -12,6 +12,10 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: 'login',
+    loadChildren: () => import('./home/login/login.component').then( m => m.LoginComponent)
+  },
+  {
     path: 'muro',
     loadChildren: () => import('./muro/muro.module').then( m => m.MuroPageModule)
   },
