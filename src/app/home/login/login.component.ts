@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from 'src/app/services/login.service';
 import { Preferences } from '@capacitor/preferences';
+import { Router } from '@angular/router';
 
 
 
@@ -13,7 +14,8 @@ export class LoginComponent  implements OnInit {
   public email: string = '';
   public password: string = '';
   constructor(
-    public loginService: LoginService
+    public loginService: LoginService,
+    public router:Router
   ) { }
 
   ngOnInit() {}
@@ -36,6 +38,7 @@ export class LoginComponent  implements OnInit {
     if(value)
     this.loginService.Quien(value).then((res)=>{
       console.log("Este soy yo", res);
+      this.router.navigate(['/muro'])
     })
   }
 
