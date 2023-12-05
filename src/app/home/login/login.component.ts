@@ -22,16 +22,26 @@ export class LoginComponent  implements OnInit {
 
   onLogin(){
     //this.email, this.password = Estas variables las estas declarando arriba, pero no son las que viene de la vista .html
-    this.loginService.Logearse(this.email, this.password).then(async (res)=>{
-      console.log(res.data.token)
 
-        await Preferences.set({
-          key: 'token',
-          value: res.data.token,
-        });
-        this.onQuiensoy();
 
-    })
+    if(this.email=="" || this.password==""){
+      alert("Ingresa todos los datos")
+    }else{
+      this.loginService.Logearse(this.email, this.password).then(async (res)=>{
+        console.log(res.data.token)
+
+          await Preferences.set({
+            key: 'token',
+            value: res.data.token,
+          });
+          if(res.data.token){
+            this.onQuiensoy()
+          }else{
+            alert("Usuario no encontrado, verifacar los campos")
+          }
+
+      })
+  }
   }
   async onQuiensoy(){
     const { value } = await Preferences.get({ key: 'token' });

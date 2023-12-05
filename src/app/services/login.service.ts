@@ -48,6 +48,7 @@ export class LoginService {
     // const response = await Http.request({ ...options, method: 'GET' })
   };
 
+  
   Registro = async (email: string, password: string, nombre: string, estado: string, rol: string) =>{
 
     const options ={
