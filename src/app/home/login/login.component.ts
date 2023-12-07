@@ -37,7 +37,7 @@ export class LoginComponent  implements OnInit {
           if(res.data.token){
             this.onQuiensoy()
           }else{
-            alert("Usuario no encontrado, verifacar los campos")
+            alert("Usuario no encontrado, verificar los datos")
           }
 
       })
