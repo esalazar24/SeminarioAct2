@@ -1,0 +1,33 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>REGISTRO</ion-title><ion-icon name="arrow-undo" [routerLink]="['/admin']"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <h1 class="heading">Crear Anteproyecto</h1>
+  <ion-list>
+    <ion-item>
+      <ion-input labelPlacement="floating" placeholder="Nombre del Anteproyecto" [(ngModel)]="anteproyecto.nombre">
+        <div slot="label">Nombre del Anteproyecto <ion-text color="danger">(Requerido)</ion-text></div>
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input labelPlacement="floating" placeholder="Detalles" [(ngModel)]="anteproyecto.detalle">
+        <div slot="label">Detalles</div>
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Estado <ion-text color="danger">(Requerido)</ion-text></ion-label>
+      <ion-radio-group [(ngModel)]="anteproyecto.estado" required>
+        <ion-radio value="Activo">Activo</ion-radio>
+        <ion-radio value="Inactivo">Inactivo</ion-radio>
+      </ion-radio-group>
+    </ion-item>
+
+    <ion-button (click)="crearAnteproyecto()" expand="block">Guardar</ion-button>
+  </ion-list>
+</ion-content>
+

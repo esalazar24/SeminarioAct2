@@ -1,0 +1,41 @@
+
+
+<ion-content [fullscreen]="true">
+  <h1 class="heading">👋 REGISTRATE<br><br></h1>
+  <br><p class="para">LLena la Informacion de forma correcta!</p>
+
+  <ion-list>
+    <ion-list>
+      <ion-item>
+        <ion-input labelPlacement="floating" placeholder="Escribre tu nombre" [(ngModel)]="usuario.nombre">
+          <div slot="label"><ion-icon name="person-circle-outline"></ion-icon>Nombre completo <ion-text color="danger">(Required)</ion-text></div>
+        </ion-input>
+
+      </ion-item>
+
+      <ion-item>
+        <ion-input labelPlacement="floating" placeholder="correo@correo.com" [(ngModel)]="usuario.email">
+          <div slot="label"><ion-icon name="mail-outline"></ion-icon>Email <ion-text color="danger">(Required)</ion-text></div>
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label><ion-icon name="keypad-outline"></ion-icon>Contraseña <ion-text color="danger">(Required)</ion-text></ion-label>
+        <ion-input type="password" placeholder="contraseña" [(ngModel)]="usuario.password"></ion-input>
+      </ion-item>
+
+      <ion-text color="primary">
+        <h3 [align]="">TIPO DE USUARIOS</h3>
+      </ion-text>
+
+      <ion-item>
+        <ion-radio-group  [(ngModel)]="usuario.rol" required>
+          <ion-radio label-placement="end" justify="start" color="success" value="admin">Administrador</ion-radio><br />
+          <ion-radio label-placement="end" justify="start" color="success" value="estudiante">Estudiante</ion-radio><br />
+        </ion-radio-group>
+      </ion-item>
+      <ion-button (click)="nuevo()" expand="block">Guardar</ion-button>
+      <ion-button color="success" [routerLink]="['/']" expand="block">Ya estas registrado</ion-button>
+    </ion-list>
+  </ion-list>
+</ion-content>

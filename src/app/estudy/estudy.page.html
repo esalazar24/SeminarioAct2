@@ -1,0 +1,19 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Perfil de Estudiante</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card *ngIf="user" color="primary">
+    <ion-card-header>
+      <ion-card-title>{{ user.nombre }}<ion-icon name="people"></ion-icon></ion-card-title>
+      <ion-card-subtitle>{{ user.rol }}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+
+      <p>Email:<ion-icon name="mail"></ion-icon> {{ user.email }} </p>
+    </ion-card-content>
+    <ion-button (click)="cerrarSesion()">Cerrar Sesion<ion-icon name="exit"></ion-icon></ion-button>
+  </ion-card>
+</ion-content>

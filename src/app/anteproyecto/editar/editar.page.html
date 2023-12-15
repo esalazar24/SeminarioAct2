@@ -1,0 +1,48 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Editar Anteproyecto</ion-title>
+    <ion-buttons slot="end" [routerLink]="['/admin']">
+      <ion-button >
+        <ion-icon slot="icon-only" name="arrow-back" ></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Editar Anteproyecto</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="floating">Nombre</ion-label>
+        <ion-input type="text" [(ngModel)]="anteproyecto.nombre"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Detalle</ion-label>
+        <ion-textarea [(ngModel)]="anteproyecto.detalle"></ion-textarea>
+      </ion-item>
+
+      <ion-item>
+          <ion-radio-group  [(ngModel)]="anteproyecto.estado" required>
+          <ion-radio label-placement="end" justify="start" color="success" value="Activo">Activo</ion-radio><br />
+          <ion-radio label-placement="end" justify="start" color="success" value="Inactivo">Inactivo</ion-radio><br />
+        </ion-radio-group>
+      </ion-item>
+      <ion-item *ngFor="let item of anteproyecto.items; let i = index">
+        <ion-label>{{ item }}</ion-label>
+        <ion-button (click)="eliminarItem(i)" slot="end">Eliminar</ion-button>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Nuevo Item</ion-label>
+        <ion-input type="text" [(ngModel)]="nuevoItem"></ion-input>
+        <ion-button (click)="agregarItem()">Agregar</ion-button>
+      </ion-item>
+
+      <ion-button expand="full" (click)="guardarCambios()">Guardar Cambios</ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

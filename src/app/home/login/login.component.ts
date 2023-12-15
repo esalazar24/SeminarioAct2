@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 export class LoginComponent  implements OnInit {
   public email: string = '';
   public password: string = '';
+  public token:string=""
   constructor(
     public loginService: LoginService,
     public router:Router
@@ -45,11 +46,25 @@ export class LoginComponent  implements OnInit {
   }
   async onQuiensoy(){
     const { value } = await Preferences.get({ key: 'token' });
+    if(value) {
+      this.loginService.Quien(value).then((res)=>{
+        console.log("Este soy yo", res.rol);
+
+        this.router.navigate(['/', res.rol]);  // Redirecciona según el rol
+      })
+    }
+
+}
+
+    /*
+    const { value } = await Preferences.get({ key: 'token' });
     if(value)
     this.loginService.Quien(value).then((res)=>{
       console.log("Este soy yo", res);
-      this.router.navigate(['/muro'])
-    })
-  }
+      this.router.navigate(['redireccion/'])
+    })*/
+
+
+
 
 }

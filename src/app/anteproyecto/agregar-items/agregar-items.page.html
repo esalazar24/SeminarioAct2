@@ -1,0 +1,28 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Agregar Items</ion-title>
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['/admin']">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-content>
+      <ion-item *ngFor="let item of this.anteproyecto.items">
+        <ion-label>{{ item }}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Nuevo Item</ion-label>
+        <ion-input type="text" [(ngModel)]="nuevoItem"></ion-input>
+        <ion-button (click)="agregarItem()">Agregar</ion-button>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+
+  <ion-button expand="full" (click)="guardarItems()">Guardar</ion-button>
+</ion-content>
